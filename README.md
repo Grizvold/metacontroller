@@ -21,6 +21,9 @@ You need to have the following installed on your machine:
 
 ## How to Run
 
+The CompositeController CRD is what allows you to create CompositeController resources. These are the resources that describe how your custom resources should be handled.
+
+Before you can create a CompositeController, you need to install the Metacontroller CRDs in your cluster. This is typically done as part of installing Metacontroller itself.
 ```
 kubectl apply \
     --kustomize https://github.com/metacontroller/metacontroller/manifests/production
