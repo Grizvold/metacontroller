@@ -1,0 +1,31 @@
+apiVersion: metacontroller.io/v1alpha1
+kind: CompositeController
+metadata:
+  name: rediscrud-controller
+spec:
+  parentResource:
+    apiVersion: shield.com/v1
+    resource: rediscruds
+  childResources:
+    - apiVersion: apps/v1
+      resource: deployments
+      updateStrategy:
+        method: InPlace
+  hooks:
+    sync:
+      webhook:
+        url: http://rediscrud-controller-service.default.svc.cluster.local:4567/sync
+
+---
+apiVersion: metacontroller.io/v1alpha1
+kind: CompositeController
+metadata:
+  name: slacknotifier-controller
+spec:
+  parentResource:
+    apiVersion: shield.com/v1
+    resource: rediscruds
+  hooks:
+    sync:
+      webhook:
+        url: http://slacknotifier-service.default.svc.cluster.local:4568/slack

@@ -1,0 +1,8 @@
+apiVersion: shield.com/v1
+kind: RedisCrud
+metadata:
+  name: my-redis-crud
+  namespace: default
+spec:
+  port: 4567
+  replicas: 1

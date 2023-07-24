@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slacknotifier-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slacknotifier-service
+  template:
+    metadata:
+      labels:
+        app: slacknotifier-service
+    spec:
+      containers:
+        - name: slacknotifier-service
+          image: jin105/slack-notificator
+          env:
+            - name: PORT
+              value: "4568"
+            - name: SLACK_CHANNEL
+              value: "metacontroller"
+            - name: SLACK_TOKEN
+              value: "xoxb-5620616782341-5636854967073-TXFHIuLXNjWuyCLv1P4q4v8H"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: slacknotifier-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 4568
+  selector:
+    app: slacknotifier-service

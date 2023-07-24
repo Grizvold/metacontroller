@@ -1,0 +1,5 @@
+apiVersion: shield.com/v1
+kind: SlackNotificator
+metadata:
+  name: my-slack-notificator
+  namespace: default

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-crud-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: redis-crud-service
+  template:
+    metadata:
+      labels:
+        app: redis-crud-service
+    spec:
+      containers:
+        - name: redis-crud-service
+          image: jin105/redis-crud-service
+          env:
+            - name: REDIS_HOST
+              value: "localhost"
+            - name: REDIS_PORT
+              value: "6379"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-crud-controller-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 4567
+  selector:
+    app: redis-crud-service
