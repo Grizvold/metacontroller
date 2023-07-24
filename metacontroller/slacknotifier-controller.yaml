@@ -19,9 +19,9 @@ spec:
             - name: PORT
               value: "4568"
             - name: SLACK_CHANNEL
-              value: "metacontroller"
+              value: "<CHANNEL>"
             - name: SLACK_TOKEN
-              value: "xoxb-5620616782341-5636854967073-TXFHIuLXNjWuyCLv1P4q4v8H"
+              value: "<TOKEN>"
 ---
 apiVersion: v1
 kind: Service
