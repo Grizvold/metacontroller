@@ -21,6 +21,10 @@ You need to have the following installed on your machine:
 
 ## How to Run
 
+```
+kubectl apply \
+    --kustomize https://github.com/metacontroller/metacontroller/manifests/production
+```
 1. Apply the CustomResourceDefinitions:
 ````
 kubectl apply -f crds.yaml
