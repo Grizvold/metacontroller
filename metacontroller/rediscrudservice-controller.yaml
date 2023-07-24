@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis-crud-service
+  name: redis-crud-service-controller-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: redis-crud-service
+      app: redis-crud-service-controller-deployment
   template:
     metadata:
       labels:
-        app: redis-crud-service
+        app: redis-crud-service-controller-deployment
     spec:
       containers:
-        - name: redis-crud-service
+        - name: redis-crud-service-controller-deployment
           image: jin105/redis-crud-service
           env:
             - name: REDIS_HOST

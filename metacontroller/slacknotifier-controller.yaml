@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: slacknotifier-service
+  name: slacknotifier-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: slacknotifier-service
+      app: slacknotifier-deployment
   template:
     metadata:
       labels:
-        app: slacknotifier-service
+        app: slacknotifier-deployment
     spec:
       containers:
-        - name: slacknotifier-service
+        - name: slacknotifier-deployment
           image: jin105/slack-notificator
           env:
             - name: PORT

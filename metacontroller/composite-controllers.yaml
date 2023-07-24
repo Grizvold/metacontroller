@@ -1,4 +1,4 @@
-apiVersion: metacontroller.io/v1alpha1
+apiVersion: metacontroller.k8s.io/v1alpha1
 kind: CompositeController
 metadata:
   name: rediscrud-controller
@@ -17,7 +17,7 @@ spec:
         url: http://rediscrud-controller-service.default.svc.cluster.local:4567/sync
 
 ---
-apiVersion: metacontroller.io/v1alpha1
+apiVersion: metacontroller.k8s.io/v1alpha1
 kind: CompositeController
 metadata:
   name: slacknotifier-controller
